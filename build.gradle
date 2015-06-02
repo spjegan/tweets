@@ -14,10 +14,10 @@ repositories {
 }
 
 dependencies {
-    compile 'com.samples:kafka-samples:1.0'
+//    compile 'com.samples:kafka-samples:1.0'
 
     compile 'org.scala-lang:scala-library-all:2.11.6'
-    compile 'org.apache.storm:storm-core:0.9.4'
+//    compile 'org.apache.storm:storm-core:0.9.4'
     compile 'org.twitter4j:twitter4j-stream:4.0.3'
     compile 'com.google.guava:guava:18.0'
     testCompile "org.scalatest:scalatest_2.11:2.2.2"
