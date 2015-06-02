@@ -1,5 +1,7 @@
 package com.pubmatic.tweets.cache
 
+import java.util.{Comparator, PriorityQueue}
+
 import org.scalatest.{FlatSpec, Matchers}
 
 /**
@@ -8,7 +10,7 @@ import org.scalatest.{FlatSpec, Matchers}
 class SimpleHashTagCacheTest extends FlatSpec with Matchers {
 
   "+=" should "add elements to the cache" in {
-    val cache = SimpleHashTagCache
+    val cache = new SimpleHashTagCache()
 
     cache += ("k1", 1)
 
@@ -18,7 +20,7 @@ class SimpleHashTagCacheTest extends FlatSpec with Matchers {
   }
 
   "++" should "increment the value of the key" in {
-    val cache = SimpleHashTagCache
+    val cache = new SimpleHashTagCache()
 
     cache ++ "test1"
     cache("test1") should be (1)
@@ -28,7 +30,7 @@ class SimpleHashTagCacheTest extends FlatSpec with Matchers {
   }
 
   "get" should "return Option" in {
-    val cache = SimpleHashTagCache
+    val cache = new SimpleHashTagCache()
 
     cache += ("k1", 1)
 
@@ -37,7 +39,7 @@ class SimpleHashTagCacheTest extends FlatSpec with Matchers {
   }
 
   "getAll" should "return immutable map" in {
-    val cache = SimpleHashTagCache
+    val cache = new SimpleHashTagCache()
 
     cache += ("k1", 1)
     cache += ("k2", 2)
@@ -49,7 +51,7 @@ class SimpleHashTagCacheTest extends FlatSpec with Matchers {
   }
 
   "map" should "apply the function to the specified key" in {
-    val cache = SimpleHashTagCache
+    val cache = new SimpleHashTagCache()
 
     cache += ("k1", 1)
     cache += ("k2", 1)
@@ -60,4 +62,17 @@ class SimpleHashTagCacheTest extends FlatSpec with Matchers {
     cache("k1") should be (2)
     cache("k2") should be (1)
   }
+
+/*  "queue" should "work" in {
+    val q = new PriorityQueue[Test]()
+    q.add(new Test(10))
+
+  }*/
 }
+
+/*class Test(val n: Int)
+
+class TestComparator extends Comparator[Test] {
+
+  override def compare(o1: Test, o2: Test): Int = o1.n - o2.n
+}*/

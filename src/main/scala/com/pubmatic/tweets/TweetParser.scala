@@ -2,12 +2,12 @@ package com.pubmatic.tweets
 
 import java.util.StringTokenizer
 
-import akka.actor.{ActorRef, Actor}
+import akka.actor.{ActorLogging, ActorRef, Actor}
 
 /**
  * Created by jegan on 31/5/15.
  */
-class TweetParser(distributor: ActorRef) extends Actor {
+class TweetParser(distributor: ActorRef) extends Actor with ActorLogging {
 
   Console.println("Inside TweetParser")
 

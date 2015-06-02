@@ -25,7 +25,7 @@ class TrendObserverTest extends TestKit(ActorSystem("testActor"))
       to ! TrendingTag("#test6", 15)
       to ! TrendingTag("#test7", 100)
 
-      to ! "get"
+      to ! TrendingTags
 
       //      counter ! GetCount("#test1")
 //      expectMsg(pq: MinMaxPriorityQueue)

@@ -1,7 +1,8 @@
 package com.pubmatic.tweets
 
-import akka.actor.{ActorSystem, Props}
-import akka.routing.RoundRobinRouter
+import akka.actor.{ActorRef, ActorSystem, Props}
+import akka.routing.{ConsistentHashingPool, RoundRobinRouter}
+import com.pubmatic.tweets.trends.TrendObserver
 import twitter4j._
 import twitter4j.conf.ConfigurationBuilder
 
@@ -23,12 +24,16 @@ object TweetStream extends App {
 
   val as = ActorSystem("StreamingActors")
 //  val distributor = as.actorOf(Props[HashTagDistributor], name = "Distributor")
-  val counter = as.actorOf(Props[HashTagCounter], name = "Counter")
+//  val counter = as.actorOf(Props[HashTagCounter], name = "Counter")
+
+  val to = as.actorOf(Props(classOf[TrendObserver], 10), name = "TrendObserver")
+
+  val counter: ActorRef = as.actorOf(ConsistentHashingPool(10).props(Props(classOf[HashTagCounter], to)), name = "Counter")
 
   val distributor = as.actorOf(Props(classOf[HashTagDistributor], counter), name = "Distributor")
-  val tweetParser = as.actorOf(Props(classOf[TweetParser], distributor).withRouter(RoundRobinRouter(nrOfInstances = 5)), name = "TweetParser")
+  val tweetParser = as.actorOf(Props(classOf[TweetParser], distributor).withRouter(RoundRobinRouter(nrOfInstances = 10)), name = "TweetParser")
 
-  val poller = as.actorOf(Props(classOf[Poller], counter), name = "Poller")
+  val poller = as.actorOf(Props(classOf[Poller], to), name = "Poller")
 
   val scheduler = as.scheduler.schedule(5 seconds, 5 seconds, poller, Tick)
 

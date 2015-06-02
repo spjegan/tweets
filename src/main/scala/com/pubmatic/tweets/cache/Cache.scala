@@ -1,7 +1,5 @@
 package com.pubmatic.tweets.cache
 
-import scala.collection.mutable
-
 /**
  * Created by jegan on 31/5/15.
  */
@@ -57,9 +55,9 @@ trait WithDefault[V] {
   def default: V
 }
 
-object SimpleHashTagCache extends Cache[String, Int] {
+class SimpleHashTagCache extends Cache[String, Int] {
 
-  val cache = mutable.Map[String, Int]().empty.withDefaultValue(0)
+  var cache = Map[String, Int]().empty.withDefaultValue(0)
 
   override def +=(tag: String, count: Int) = cache += (tag -> count)
 
@@ -69,7 +67,7 @@ object SimpleHashTagCache extends Cache[String, Int] {
 
   override def get(tag: String): Option[Int] = cache.get(tag)
 
-  override def getAll: Map[String, Int] = cache.toMap
+  override def getAll: Map[String, Int] = cache
 
   override def map(key: String, f: (Int) => Int) = this += (key, f(cache(key)))
 
