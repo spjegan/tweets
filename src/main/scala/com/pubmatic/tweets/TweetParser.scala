@@ -21,7 +21,6 @@ class TweetParser(distributor: ActorRef) extends Actor with ActorLogging {
     while(tokenizer.hasMoreTokens) {
       val token = tokenizer.nextToken()
       if (token.startsWith("#")) {
-//        Console.println(s"HashTag found $token")
         distributor ! HashTag(token)
       }
     }

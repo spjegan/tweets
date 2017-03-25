@@ -1,10 +1,8 @@
 package com.pubmatic.tweets.trends
 
-import akka.actor.{Props, ActorSystem}
-import akka.testkit.{TestActorRef, ImplicitSender, TestKit, TestActor}
-import com.google.common.collect.MinMaxPriorityQueue
-import com.pubmatic.tweets.{Count, HashTagCounter}
-import org.scalatest.{WordSpecLike, MustMatchers, FunSuite}
+import akka.actor.{ActorSystem, Props}
+import akka.testkit.{ImplicitSender, TestActorRef, TestKit}
+import org.scalatest.{MustMatchers, WordSpecLike}
 
 /**
  * Created by jegan on 1/6/15.
@@ -26,12 +24,7 @@ class TrendObserverTest extends TestKit(ActorSystem("testActor"))
       to ! TrendingTag("#test7", 100)
 
       to ! TrendingTags
-
-      //      counter ! GetCount("#test1")
-//      expectMsg(pq: MinMaxPriorityQueue)
-
-      //      counter ! GetCount("#test2")
-      //      expectMsg(1)
+      expectMsg(1)
     }
   }
 }

@@ -15,11 +15,6 @@ class Poller(to: ActorRef) extends Actor with ActorLogging {
       to ! TrendingTags
     }
 
-/*    case map: Map[String, Int] => {
-      Console.println("HashTags are....")
-      map.foreach(t => Console.println(s"HashTag - ${t._1} = ${t._2}"))
-    }*/
-
     case _ => Console.println("Invalid message received by the Poller")
   }
 }

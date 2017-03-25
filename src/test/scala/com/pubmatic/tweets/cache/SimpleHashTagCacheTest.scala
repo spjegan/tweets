@@ -62,17 +62,4 @@ class SimpleHashTagCacheTest extends FlatSpec with Matchers {
     cache("k1") should be (2)
     cache("k2") should be (1)
   }
-
-/*  "queue" should "work" in {
-    val q = new PriorityQueue[Test]()
-    q.add(new Test(10))
-
-  }*/
 }
-
-/*class Test(val n: Int)
-
-class TestComparator extends Comparator[Test] {
-
-  override def compare(o1: Test, o2: Test): Int = o1.n - o2.n
-}*/

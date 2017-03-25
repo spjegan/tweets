@@ -18,17 +18,9 @@ class HashTagCounterTest extends TestKit(ActorSystem("testActorSystem"))
       counter ! Count("#test1")
       counter ! Count("#test1")
       counter ! Count("#test2")
-
-//      counter ! GetCount("#test1")
-//      expectMsg(2)
-
-//      counter ! GetCount("#test2")
-//      expectMsg(1)
     }
 
     "return 0 if hashtag is not present in cache" in {
-//      counter ! GetCount("#test3")
-//      expectMsg(0)
     }
   }
 
