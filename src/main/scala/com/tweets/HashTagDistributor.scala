@@ -1,7 +1,6 @@
-package com.pubmatic.tweets
+package com.tweets
 
-import akka.actor.{ActorLogging, Actor, ActorRef, Props}
-import akka.routing.ConsistentHashingPool
+import akka.actor.{Actor, ActorLogging, ActorRef}
 
 /**
  * Created by jegan on 31/5/15.

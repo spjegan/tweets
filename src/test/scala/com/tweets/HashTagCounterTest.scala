@@ -1,4 +1,4 @@
-package com.pubmatic.tweets
+package com.tweets
 
 import akka.actor.ActorSystem
 import akka.testkit.{ImplicitSender, TestActorRef, TestKit}

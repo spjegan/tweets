@@ -1,4 +1,4 @@
-package com.pubmatic.tweets
+package com.tweets
 
 import akka.actor.{Actor, ActorLogging, ActorRef}
 import akka.routing.ConsistentHashingRouter.ConsistentHashable

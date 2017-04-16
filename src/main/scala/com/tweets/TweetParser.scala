@@ -1,8 +1,8 @@
-package com.pubmatic.tweets
+package com.tweets
 
 import java.util.StringTokenizer
 
-import akka.actor.{ActorLogging, ActorRef, Actor}
+import akka.actor.{Actor, ActorLogging, ActorRef}
 
 /**
  * Created by jegan on 31/5/15.

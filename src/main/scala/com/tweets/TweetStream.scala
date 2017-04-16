@@ -1,4 +1,4 @@
-package com.pubmatic.tweets
+package com.tweets
 
 import akka.actor.{ActorRef, ActorSystem, Props}
 import akka.routing.{ConsistentHashingPool, RoundRobinRouter}
@@ -6,8 +6,8 @@ import com.pubmatic.tweets.trends.TrendObserver
 import twitter4j._
 import twitter4j.conf.ConfigurationBuilder
 
-import scala.concurrent.duration._
 import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.duration._
 
 /**
  * Created by jegan on 31/5/15.

@@ -1,7 +1,8 @@
-package com.pubmatic.tweets.trends
+package com.tweets.trends
 
 import akka.actor.{ActorSystem, Props}
 import akka.testkit.{ImplicitSender, TestActorRef, TestKit}
+import com.pubmatic.tweets.trends.{TrendObserver, TrendingTag}
 import org.scalatest.{MustMatchers, WordSpecLike}
 
 /**

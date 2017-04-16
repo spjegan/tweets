@@ -1,6 +1,6 @@
-package com.pubmatic.tweets
+package com.tweets
 
-import akka.actor.{ActorLogging, Actor, ActorRef}
+import akka.actor.{Actor, ActorLogging, ActorRef}
 import com.pubmatic.tweets.trends.TrendingTags
 
 /**

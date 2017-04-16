@@ -1,7 +1,6 @@
-package com.pubmatic.tweets.cache
+package com.tweets.cache
 
-import java.util.{Comparator, PriorityQueue}
-
+import com.pubmatic.tweets.cache.SimpleHashTagCache
 import org.scalatest.{FlatSpec, Matchers}
 
 /**
